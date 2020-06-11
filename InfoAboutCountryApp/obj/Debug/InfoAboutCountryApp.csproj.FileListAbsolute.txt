@@ -1,0 +1,16 @@
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\InfoAboutCountryApp.exe.config
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\InfoAboutCountryApp.exe
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\InfoAboutCountryApp.pdb
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.csprojAssemblyReference.cache
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.Properties.Resources.resources
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.csproj.GenerateResource.cache
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.exe
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.pdb
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\RestSharp.dll
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\RestSharp.xml
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.csproj.CopyComplete
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\ClassLibrary.dll
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\bin\Debug\ClassLibrary.pdb
+C:\Users\Алексей\source\repos\InfoAboutCountryApp\InfoAboutCountryApp\obj\Debug\InfoAboutCountryApp.MainWindowForm.resources
