@@ -7,34 +7,40 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
+
     public class Connection
     {
-        //public string conString = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
-        //public void GetConnection()
-        //{
-        //    SqlConnection Mycon = new SqlConnection(conString);
+        public List<string[]> Data { get; set; }
 
-        //    Mycon.Open();
+        public string conString = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
+        public void GetConnection()
+        {
+            SqlConnection Mycon = new SqlConnection(conString);
 
-        //    string query = "SELECT Name FROM Countries";
+            Mycon.Open();
 
-        //    SqlCommand command = new SqlCommand(query, Mycon);
+            string query = "Select * from CountriesDB";
 
-        //    SqlDataReader reader = command.ExecuteReader();
-            
-        //    List<string[]> data = new List<string[]>();
-        //    while (reader.Read())
-        //    {
-        //        data.Add(new string[3]);
+            SqlCommand command = new SqlCommand(query, Mycon);
 
-        //        data[data.Count - 1][0] = reader[1].ToString();
-        //        data[data.Count - 1][1] = reader[2].ToString();
-        //    }
-        //    reader.Close();
-        //    Mycon.Close();
-        //    foreach (string[] s in data)
-        //        dataGridView1.Rows.Add(s);
-        //}
+            SqlDataReader reader = command.ExecuteReader();
 
+            List<string[]> data = new List<string[]>();
+            while (reader.Read())
+            {
+                data.Add(new string[7]);
+
+                data[data.Count - 1][0] = reader[0].ToString();
+                data[data.Count - 1][1] = reader[1].ToString();
+                data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+                data[data.Count - 1][4] = reader[4].ToString();
+                data[data.Count - 1][5] = reader[5].ToString();
+                data[data.Count - 1][6] = reader[6].ToString();
+            }
+            Data = data;
+            reader.Close();
+            Mycon.Close();
+        }
     }
 }

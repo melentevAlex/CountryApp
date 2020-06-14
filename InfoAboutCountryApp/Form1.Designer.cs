@@ -45,18 +45,12 @@
             this.PopulationLabel1 = new System.Windows.Forms.Label();
             this.RegionLabel1 = new System.Windows.Forms.Label();
             this.ShowInfoButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
             this.MinimyzeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // NameOfCountryLabel
@@ -262,33 +256,37 @@
             this.ShowInfoButton.TabIndex = 3;
             this.ShowInfoButton.Text = "Show info";
             this.ShowInfoButton.UseVisualStyleBackColor = true;
-            this.ShowInfoButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(47, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(383, 46);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Show Avaiable Coutries from DB";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ShowInfoButton.Click += new System.EventHandler(this.ShowInfoButton_Click);
             // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel.Controls.Add(this.BackButton);
             this.panel.Controls.Add(this.MinimyzeButton);
             this.panel.Controls.Add(this.CloseButton);
             this.panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(761, 21);
+            this.panel.Size = new System.Drawing.Size(689, 21);
             this.panel.TabIndex = 5;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // BackButton
+            // 
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BackButton.Location = new System.Drawing.Point(551, 0);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(54, 21);
+            this.BackButton.TabIndex = 8;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // MinimyzeButton
             // 
@@ -298,7 +296,7 @@
             this.MinimyzeButton.FlatAppearance.BorderSize = 0;
             this.MinimyzeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimyzeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MinimyzeButton.Location = new System.Drawing.Point(677, 0);
+            this.MinimyzeButton.Location = new System.Drawing.Point(605, 0);
             this.MinimyzeButton.Name = "MinimyzeButton";
             this.MinimyzeButton.Size = new System.Drawing.Size(42, 21);
             this.MinimyzeButton.TabIndex = 7;
@@ -314,7 +312,7 @@
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CloseButton.Location = new System.Drawing.Point(719, 0);
+            this.CloseButton.Location = new System.Drawing.Point(647, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(42, 21);
             this.CloseButton.TabIndex = 6;
@@ -322,55 +320,13 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(43, 318);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "List avaiable countries";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(47, 359);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 9;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(47, 562);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // MainWindowForm
             // 
             this.AcceptButton = this.ShowInfoButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 633);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(689, 272);
             this.Controls.Add(this.panel);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ShowInfoButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox1);
@@ -383,8 +339,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,14 +362,10 @@
         private System.Windows.Forms.Label CodeLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Button ShowInfoButton;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button MinimyzeButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BackButton;
     }
 }
 
