@@ -1,0 +1,10 @@
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\ClassLibrary.dll
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\ClassLibrary.pdb
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\RestSharp.dll
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\bin\Release\RestSharp.xml
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\obj\Release\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\obj\Release\ClassLibrary.csproj.CopyComplete
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\obj\Release\ClassLibrary.dll
+C:\Users\Алексей\Desktop\CountryApp\ClassLibrary\obj\Release\ClassLibrary.pdb

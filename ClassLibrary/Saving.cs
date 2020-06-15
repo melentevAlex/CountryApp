@@ -41,7 +41,7 @@ namespace ClassLibrary
             string population = Population;
             string region = Region;
 
-
+            GetInfoName();
 
 
             if (con.State == ConnectionState.Open)
@@ -52,6 +52,33 @@ namespace ClassLibrary
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+        public List<string> Data2 { get; set; }
+
+        public string conString2 = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
+        public void GetInfoName()
+        {
+            SqlConnection Mycon = new SqlConnection(conString2);
+
+            Mycon.Open();
+
+            string query = "Select Name from CountriesDB";
+
+            SqlCommand command = new SqlCommand(query, Mycon);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<string> data = new List<string>();
+            while (reader.Read())
+            {
+                data.Add(reader[0].ToString());
+            }
+            Data2 = data;
+            reader.Close();
+            Mycon.Close();
+        }
+
 
     }
 }

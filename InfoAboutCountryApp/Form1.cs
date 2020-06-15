@@ -53,23 +53,17 @@ namespace InfoAboutCountryApp
       
 
         }
-        public void LableMethod()
+        public  void LableMethod()
         {
+           
             CapitalLabel.Text = getInfo.Capital;
             AreaLabel.Text = getInfo.Area;
             PopulationLabel.Text = getInfo.Population;
             CodeLabel.Text = getInfo.Code;
             NameLabel.Text = getInfo.Name;
             RegionLabel.Text = getInfo.Region;
-
-            saving = new Saving();
-
-            saving.Capital = CapitalLabel.Text;
-            saving.Area = AreaLabel.Text;
-            saving.Population = PopulationLabel.Text;
-            saving.Code = CodeLabel.Text;
-            saving.Name = NameLabel.Text;
-            saving.Region = RegionLabel.Text;
+            //MethDialWin();
+          
         }
 
 
@@ -128,42 +122,85 @@ namespace InfoAboutCountryApp
                 getInfo.GetInfoAPI();
                 LableMethod();
             
-                MethDialWin();
             }
+            
             catch (MyException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (InputMustContainsOnlyLetters ex2)
+            catch (InputMustContainsOnlyLetters ex)
             {
-                MessageBox.Show(ex2.Message);
+                MessageBox.Show(ex.Message);
             }
-            catch (ThatCountryDoesNotExist ex3)
+            catch (ThatCountryDoesNotExist ex)
             {
-                MessageBox.Show(ex3.Message);
+                MessageBox.Show(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             
         }
-        
-        public void MethDialWin()
+
+        //public async void MethDialWin()
+        //{
+        //    await Task.Run(() =>
+        //    {
+        //        DialogResult result = MessageBox.Show(
+        //        "Save in the database?",
+        //        "Message",
+
+        //        MessageBoxButtons.YesNo,
+        //        MessageBoxIcon.Information,
+        //        MessageBoxDefaultButton.Button1,
+        //        MessageBoxOptions.DefaultDesktopOnly);
+
+        //        //if (result == DialogResult.Yes)
+        //        //    saving.MethSave();
+
+        //        this.TopMost = true;
+        //    });
+        //}
+        public async void MethDialWin()
         {
+            await Task.Run(() =>
+            {
+                DialogResult result = MessageBox.Show(
+                "Save in the database?",
+                "Message",
 
-            DialogResult result = MessageBox.Show(
-            "Save in the database?",
-            "Message",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
 
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Information,
-            MessageBoxDefaultButton.Button1,
-            MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                {
+                    saving = new Saving();
 
-            if (result == DialogResult.Yes)
-                saving.MethSave();
+                    saving.Capital = CapitalLabel.Text;
+                    saving.Area = AreaLabel.Text;
+                    saving.Population = PopulationLabel.Text;
+                    saving.Code = CodeLabel.Text;
+                    saving.Name = NameLabel.Text;
+                    saving.Region = RegionLabel.Text;
+                    saving.MethSave();
+                }
 
-            this.TopMost = true;
+                //this.TopMost = true;
 
+            });
 
+        }
 
+        private void CapitalLabel_TextChanged_1(object sender, EventArgs e)
+        {
+            if (CapitalLabel.Text.Length > 0)
+            {
+                MethDialWin();
+
+            }
         }
     }
 }

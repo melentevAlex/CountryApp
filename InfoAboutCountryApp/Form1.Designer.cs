@@ -49,6 +49,7 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.MinimyzeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.CapitalLabel.Size = new System.Drawing.Size(134, 26);
             this.CapitalLabel.TabIndex = 8;
             this.CapitalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CapitalLabel.TextChanged += new System.EventHandler(this.CapitalLabel_TextChanged_1);
             // 
             // CodeLabel
             // 
@@ -320,12 +322,27 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(211, 214);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 46);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Show info";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainWindowForm
             // 
             this.AcceptButton = this.ShowInfoButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 272);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.ShowInfoButton);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -366,6 +383,7 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button MinimyzeButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
