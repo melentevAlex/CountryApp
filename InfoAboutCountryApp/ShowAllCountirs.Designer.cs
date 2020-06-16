@@ -193,7 +193,8 @@
             this.Controls.Add(this.ShowAvaiableButton);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Location = new System.Drawing.Point(600, 200);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ShowAllCountirs";
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

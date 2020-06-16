@@ -21,6 +21,7 @@ namespace InfoAboutCountryApp
             InitializeComponent();
         }
 
+        #region Actions with controls
         private void SelectOneButton_MouseMove(object sender, MouseEventArgs e)
         {
             SelectOneButton.BackColor = Color.FromArgb(214, 238, 203);
@@ -28,7 +29,7 @@ namespace InfoAboutCountryApp
 
         private void SelectOneButton_MouseLeave(object sender, EventArgs e)
         {
-            SelectOneButton.BackColor = Color.FromArgb(238, 227, 203);
+            SelectOneButton.BackColor = Color.White;
         }
 
         private void ShowAllButton_MouseMove(object sender, MouseEventArgs e)
@@ -38,14 +39,7 @@ namespace InfoAboutCountryApp
 
         private void ShowAllButton_MouseLeave(object sender, EventArgs e)
         {
-            ShowAllButton.BackColor = Color.FromArgb(238, 227, 203);
-        }
-
-        private void SelectOneButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainWindow = new MainWindowForm();
-            mainWindow.Show();
+            ShowAllButton.BackColor = Color.White;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -72,13 +66,19 @@ namespace InfoAboutCountryApp
                 this.Top += e.Y - lastPoint.Y;
             }
         }
-        private void ShowAllButton_Click(object sender, EventArgs e)
+        #endregion
+        private void ShowAllButton_Click(object sender, EventArgs e) // go to form "Show all avaiable countries in DB"
         {
             this.Hide();
             showAllCountirs = new ShowAllCountirs();
             showAllCountirs.Show();
         }
-
+        private void SelectOneButton_Click(object sender, EventArgs e) // go to form "Show only one country"
+        {
+            this.Hide();
+            mainWindow = new MainWindowForm();
+            mainWindow.Show();
+        }
 
     }
 }

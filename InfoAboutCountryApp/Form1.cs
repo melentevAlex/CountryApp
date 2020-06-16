@@ -22,21 +22,20 @@ namespace InfoAboutCountryApp
         FirstForm firstForm;
         GetInfo getInfo;
         Saving saving;
-        
+        private string Mess;
+
+        public string Mess1 { get => Mess; set => Mess = value; }
 
         public MainWindowForm()
         {
             InitializeComponent();
         }
 
-        public void InputMethod()
+        public void InputMethod()  // that method checks input for errors.
         {
-
-
             if (textBox1.Text.Length < 3)
             {
                 throw new MyException();
-
             }
 
             Regex regex = new Regex(@"[^a-zA-Z]");
@@ -50,24 +49,19 @@ namespace InfoAboutCountryApp
                 getInfo = new GetInfo();
                 getInfo.Input = textBox1.Text.Substring(0, 3);
             }
-      
-
         }
-        public  void LableMethod()
+        public  void LableMethod() // that method transmits info that got in method GetInfoApi through properties to labels
         {
-           
             CapitalLabel.Text = getInfo.Capital;
             AreaLabel.Text = getInfo.Area;
             PopulationLabel.Text = getInfo.Population;
             CodeLabel.Text = getInfo.Code;
             NameLabel.Text = getInfo.Name;
             RegionLabel.Text = getInfo.Region;
-            //MethDialWin();
-          
         }
 
 
-        #region 
+        #region just actions with controls
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
@@ -114,14 +108,13 @@ namespace InfoAboutCountryApp
         #endregion
 
 
-        private void ShowInfoButton_Click(object sender, EventArgs e)
+        private void ShowInfoButton_Click(object sender, EventArgs e) 
         {
             try
             {
-                InputMethod();
+                InputMethod(); // that method checks input for errors.
                 getInfo.GetInfoAPI();
                 LableMethod();
-            
             }
             
             catch (MyException ex)
@@ -143,26 +136,7 @@ namespace InfoAboutCountryApp
             
         }
 
-        //public async void MethDialWin()
-        //{
-        //    await Task.Run(() =>
-        //    {
-        //        DialogResult result = MessageBox.Show(
-        //        "Save in the database?",
-        //        "Message",
-
-        //        MessageBoxButtons.YesNo,
-        //        MessageBoxIcon.Information,
-        //        MessageBoxDefaultButton.Button1,
-        //        MessageBoxOptions.DefaultDesktopOnly);
-
-        //        //if (result == DialogResult.Yes)
-        //        //    saving.MethSave();
-
-        //        this.TopMost = true;
-        //    });
-        //}
-        public async void MethDialWin()
+        public async void MethodDiagram() // that method shows dialog window
         {
             await Task.Run(() =>
             {
@@ -185,20 +159,28 @@ namespace InfoAboutCountryApp
                     saving.Code = CodeLabel.Text;
                     saving.Name = NameLabel.Text;
                     saving.Region = RegionLabel.Text;
-                    saving.MethSave();
+                    getInfo.GetInfoName(); // we need to check is there a country with that name in the DB, save names of countries from DB to list
+                    try
+                    {
+                        getInfo.Checking(); // now, check
+                        saving.MethSave(); // save a new position in DB
+                    }
+                    catch (AlreadyExistInDB ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    
                 }
-
-                //this.TopMost = true;
 
             });
 
         }
 
-        private void CapitalLabel_TextChanged_1(object sender, EventArgs e)
+        private void CapitalLabel_TextChanged_1(object sender, EventArgs e) // this event requires that country information appears on the form before the dialog box appears.
         {
-            if (CapitalLabel.Text.Length > 0)
+            if (CapitalLabel.Text.Length > 0) //  if the label is filled with information
             {
-                MethDialWin();
+                MethodDiagram(); // call the method that calls dialog
 
             }
         }

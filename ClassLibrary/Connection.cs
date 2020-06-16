@@ -13,7 +13,7 @@ namespace ClassLibrary
         public List<string[]> Data { get; set; }
 
         public string conString = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
-        public void GetConnection()
+        public void GetConnection() // this method reads the values that are stored in the DB.
         {
             SqlConnection Mycon = new SqlConnection(conString);
 

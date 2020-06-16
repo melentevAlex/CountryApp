@@ -139,8 +139,9 @@
             this.Controls.Add(this.ShowAllButton);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(700, 200);
             this.Name = "FirstForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FirstForm";
             this.panel.ResumeLayout(false);
             this.ResumeLayout(false);

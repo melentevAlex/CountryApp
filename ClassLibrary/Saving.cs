@@ -12,7 +12,7 @@ namespace ClassLibrary
     {
         SqlCommand cmd;
         public string conString = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
-
+        
         private string capital;
         private string area;
         private string population;
@@ -20,6 +20,7 @@ namespace ClassLibrary
         private string name;
         private string region;
         private string input;
+        private string message;
 
         public string Capital { get => capital; set => capital = value; }
         public string Area { get => area; set => area = value; }
@@ -28,9 +29,10 @@ namespace ClassLibrary
         public string Name { get => name; set => name = value; }
         public string Region { get => region; set => region = value; }
         public string Input { get => input; set => input = value; }
+        public string Message { get => message; set => message = value; }
 
 
-        public void MethSave()
+        public void MethSave() // if such a country has not yet been saved - save it
         {
             SqlConnection con = new SqlConnection(conString);
             con.Open();
@@ -41,44 +43,13 @@ namespace ClassLibrary
             string population = Population;
             string region = Region;
 
-            GetInfoName();
-
-
             if (con.State == ConnectionState.Open)
             {
-                string q = $"INSERT INTO CountriesDB(Name, Code, Capital, Area, Population, [Region]) VALUES('" + name + "', '" + code + "', '" + capital + "',  '" + area + "', '" + population + "', '" + region + "')";           /////////////////////////////////////////////////
+                string q = $"INSERT INTO CountriesDB(Name, Code, Capital, Area, Population, [Region]) VALUES('" + name + "', '" + code + "', '" + capital + "',  '" + area + "', '" + population + "', '" + region + "')";
 
                 cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
             }
         }
-
-
-        public List<string> Data2 { get; set; }
-
-        public string conString2 = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
-        public void GetInfoName()
-        {
-            SqlConnection Mycon = new SqlConnection(conString2);
-
-            Mycon.Open();
-
-            string query = "Select Name from CountriesDB";
-
-            SqlCommand command = new SqlCommand(query, Mycon);
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            List<string> data = new List<string>();
-            while (reader.Read())
-            {
-                data.Add(reader[0].ToString());
-            }
-            Data2 = data;
-            reader.Close();
-            Mycon.Close();
-        }
-
-
     }
 }

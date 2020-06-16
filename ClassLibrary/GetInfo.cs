@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace ClassLibrary
         public string Name { get => name; set => name = value; }
         public string Region { get => region; set => region = value; }
         public string Input { get => input; set => input = value; }
-        public void GetInfoAPI()
+        public void GetInfoAPI() //  that method receives country information through API
         {
             RestClient client = new RestClient("https://restcountries.eu/rest/v2/alpha/" + input);
             RestRequest request = new RestRequest(Method.GET);
@@ -47,6 +48,51 @@ namespace ClassLibrary
             name = data.name;
             region = data.region;
 
+        }
+
+
+
+
+
+        public List<string> Data2 { get; set; }
+
+        public string conString = @"Data Source=DESKTOP-1RK0ITO\SQLEXPRESS;Initial Catalog=CountriesDB;Integrated Security=True";
+        public void GetInfoName() // we need to check is there a country with that name in the DB, save names of countries from DB to list
+        {
+            SqlConnection Mycon = new SqlConnection(conString);
+
+            Mycon.Open();
+
+            string query = "Select Name from CountriesDB"; // do select Name of countries from DB
+
+            SqlCommand command = new SqlCommand(query, Mycon);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<string> data = new List<string>();
+            while (reader.Read())
+            {
+                data.Add(reader[0].ToString());
+            }
+            Data2 = data; 
+            reader.Close();
+            Mycon.Close();
+        }
+
+
+        public void Checking() // check is the country with such name in the DB already
+        {
+            string name = Name;
+            string code = Code;
+            string capital = Capital;
+            string area = Area;
+            string population = Population;
+            string region = Region;
+
+            if (Data2.Contains(Name))
+            {
+                throw new AlreadyExistInDB();
+            }
         }
 
     }

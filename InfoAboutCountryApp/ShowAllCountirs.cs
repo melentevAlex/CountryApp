@@ -26,7 +26,7 @@ namespace InfoAboutCountryApp
         {
             connection = new Connection();
             connection.GetConnection();
-            List<string[]> da = connection.Data;
+            List<string[]> da = connection.Data; // Передаём все строки из БД в Лист da, а затем на грид
             foreach (string[] s in da)
                 dataGridView1.Rows.Add(s);
         }
